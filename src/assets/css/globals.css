@@ -37,3 +37,12 @@ h1 {
     border-bottom: 1px solid white !important;
     padding-bottom: 10px;
 }
+
+.lh-40 {
+    line-height: 50px;
+}
+
+input,
+select {
+    font-family: light;
+}

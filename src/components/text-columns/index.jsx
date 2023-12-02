@@ -12,7 +12,7 @@ const TextColumn = () => {
                     </div>
 
                     <div className="w-[40%] text-right">
-                        <p className="text-white text-[22px]">
+                        <p className="text-white text-[22px] light">
                         We’re a diverse group of marketers, writers, designers, strategists, and developers, who create things people love to interact with.
                         </p>
                     </div>

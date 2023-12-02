@@ -4,36 +4,55 @@
 
 @font-face {
   font-family: "regular";
-  src: url("./assets/fonts/MonaSans-Regular.ttf");
+  src: url("./assets/fonts/MonaSansExpanded-Regular.ttf");
+}
+
+@font-face {
+  font-family: "light";
+  src: url("./assets/fonts/MonaSansExpanded-Light.ttf");
 }
 
 @font-face {
   font-family: "semibold";
-  src: url("./assets/fonts/MonaSans-SemiBold.ttf");
+  src: url("./assets/fonts/MonaSansExpanded-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "bold";
-  src: url("./assets/fonts/MonaSans-Bold.ttf");
+  src: url("./assets/fonts/MonaSansExpanded-Bold.ttf");
 }
 
 @font-face {
   font-family: "extra-bold";
-  src: url("./assets/fonts/MonaSans-ExtraBold.ttf");
+  src: url("./assets/fonts/MonaSansExpanded-ExtraBold.ttf");
 }
 
 @font-face {
   font-family: "black";
-  src: url("./assets/fonts/MonaSans-Black.ttf");
+  src: url("./assets/fonts/MonaSansExpanded-Black.ttf");
 }
 
-*{
+@font-face {
+  font-family: "futumdbt";
+  src: url("./assets/fonts/FutuMd.ttf");
+}
+
+.futumd {
+  font-family: "futumdbt";
+}
+
+* {
   font-family: "regular";
 }
 
-.bold{
+.light {
+  font-family: "light";
+}
+
+.bold {
   font-family: "bold";
 }
-.medium{
+
+.medium {
   font-family: "semibold";
 }

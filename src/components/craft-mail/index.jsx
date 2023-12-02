@@ -17,7 +17,7 @@ const CraftMail = () => {
         })
     }, [])
     return (
-        <div className='craft-mail pb-[90px]'>
+        <div className='craft-mail pb-[30px]'>
             <div className="container">
                 <div className="card bg-black rounded-[12px] px-[45px] py-[30px]">
                     <h2 className="text-[30px] medium text-white ">
@@ -50,7 +50,7 @@ const CraftMail = () => {
                             </div>
                             <div className="item">
                                 <p className="text-xl text-white">Time zone</p>
-                                <div className="flex mt-2 justify-between items-center min-w-[270px]">
+                                <div className="flex mt-2 justify-between items-center w-[270px]">
                                     <select name="" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white text-xl' id="">
                                         <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
                                         <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
@@ -120,7 +120,7 @@ const CraftMail = () => {
                                 </div>
                             </div>
 
-                            <button className='btn bg-[#FF6330] px-[40px] py-[10px] text-white rounded-[12px]'>
+                            <button className='btn bg-[#FF6330] px-[40px] py-[20px] text-white rounded-[12px]'>
                                 Envoyer
                             </button>
                         </div>
