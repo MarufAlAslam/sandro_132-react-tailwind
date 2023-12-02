@@ -5,10 +5,10 @@ const ImageColumn = () => {
     return (
         <div className='image-column pb-[100px] pt-[50px]'>
             <div className="container">
-                <div className="flex gap-[40px] justify-between items-center">
+                <div className="flex md:flex-row flex-col gap-[40px] justify-between items-center">
                     <div className="lg:w-1/2 w-full">
                         <h4 className='uppercase mb-[15px] text-[#FD6F35] text-lg'>About us</h4>
-                        <h2 className='text-white text-[40px] lh-40 font-[500]'>
+                        <h2 className='text-white md:text-[40px] text-[30px] lh-40 font-[500]'>
                             Welcome to <br /><span className='text-[#FD6F35] font-[500]'>TimeCapsule Email</span>
                         </h2>
 

@@ -19,7 +19,7 @@ const CraftMail = () => {
     return (
         <div className='craft-mail pb-[30px]'>
             <div className="container">
-                <div className="card bg-black rounded-[12px] px-[45px] py-[30px]">
+                <div className="card bg-black rounded-[12px] md:px-[45px] px-[15px] md:py-[30px] py-[15px]">
                     <h2 className="text-[30px] medium text-white ">
                         Craft your email
                     </h2>
@@ -29,29 +29,29 @@ const CraftMail = () => {
                     <form action="">
                         <div className="flex mb-[35px] justify-start items-center flex-wrap gap-6">
                             <div className="item">
-                                <p className="text-xl text-white">Heure</p>
+                                <p className="md:text-xl text-sm text-white">Heure</p>
                                 <div className="flex mt-2 justify-between items-center w-[145px]">
-                                    <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white text-xl' placeholder='09' name="" id="" />
-                                    <span className='text-white text-xl'>:</span>
-                                    <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white text-xl' placeholder='00' name="" id="" />
+                                    <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='09' name="" id="" />
+                                    <span className='text-white md:text-xl text-sm'>:</span>
+                                    <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='00' name="" id="" />
                                 </div>
                             </div>
                             <div className="item">
-                                <p className="text-xl text-white">Jour</p>
+                                <p className="md:text-xl text-sm text-white">Jour</p>
                                 <div className="flex mt-2 justify-between items-center w-[145px]">
-                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white text-xl' placeholder='Monday' name="" id="" />
+                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Monday' name="" id="" />
                                 </div>
                             </div>
                             <div className="item">
-                                <p className="text-xl text-white">Mois</p>
+                                <p className="md:text-xl text-sm text-white">Mois</p>
                                 <div className="flex mt-2 justify-between items-center w-[145px]">
-                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white text-xl' placeholder='October' name="" id="" />
+                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='October' name="" id="" />
                                 </div>
                             </div>
                             <div className="item">
-                                <p className="text-xl text-white">Time zone</p>
+                                <p className="md:text-xl text-sm text-white">Time zone</p>
                                 <div className="flex mt-2 justify-between items-center w-[270px]">
-                                    <select name="" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white text-xl' id="">
+                                    <select name="" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
                                         <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
                                         <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
                                         <option value="-10:00">(GMT -10:00) Hawaii</option>
@@ -112,15 +112,15 @@ const CraftMail = () => {
                             />
                         </div>
 
-                        <div className="flex justify-between items-end">
+                        <div className="flex flex-wrap md:gap-0 gap-3 justify-between items-end">
                             <div className="email lg:w-[40%] md:w-1/2 w-full">
-                                <p className="text-xl text-white">Mois</p>
+                                <p className="md:text-xl text-sm text-white">Mois</p>
                                 <div className="flex mt-2 justify-between items-center w-full">
-                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white text-xl' placeholder='Example@gmail.com' name="" id="" />
+                                    <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Example@gmail.com' name="" id="" />
                                 </div>
                             </div>
 
-                            <button className='btn bg-[#FF6330] px-[40px] py-[20px] text-white rounded-[12px]'>
+                            <button className='btn bg-[#FF6330] md:px-[40px] px-[20px] md:py-[20px] py-[10px] text-white rounded-[12px]'>
                                 Envoyer
                             </button>
                         </div>
