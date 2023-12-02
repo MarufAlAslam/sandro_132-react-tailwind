@@ -3,6 +3,7 @@ import Nav from '../../components/nav'
 import TextColumn from '../../components/text-columns'
 import CraftMail from '../../components/craft-mail'
 import ImageColumn from '../../components/image-columns'
+import CopyRight from '../../components/copyright'
 
 const Home = () => {
     return (
@@ -11,8 +12,9 @@ const Home = () => {
             <main>
                 <TextColumn />
                 <CraftMail />
-                <ImageColumn/>
+                <ImageColumn />
             </main>
+            <CopyRight />
         </div>
     )
 }
