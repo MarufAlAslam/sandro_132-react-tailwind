@@ -5,9 +5,31 @@ import MailSent from '../mail-sent';
 
 const CraftMail = () => {
     const [mailSent, setMailSent] = useState(false)
+    const [emailBody, setEmailBody] = useState('')  
     const handleSubmitForm = (e) => {
         e.preventDefault()
         setMailSent(true)
+
+        const form = e.target
+
+        const hour = form.hour.value
+        const minute = form.minute.value
+        const jour = form.jour.value
+        const mois = form.mois.value
+        const timezone = form.timezone.value
+        const email = form.email.value
+
+        const data = {
+            hour,
+            minute,
+            jour,
+            mois,
+            timezone,
+            email,
+            emailBody
+        }
+
+        console.log(data)
     }
 
     const handleAgain = () => {
@@ -42,27 +64,52 @@ const CraftMail = () => {
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Heure</p>
                                     <div className="flex mt-2 justify-between items-center w-[145px]">
-                                        <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='09' name="" id="" />
+                                        <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='09' name="hour" id="" />
                                         <span className='text-white md:text-xl text-sm'>:</span>
-                                        <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='00' name="" id="" />
+                                        <input type="text" className='w-[60px] h-[60px] text-center text-white rounded-[3px] bg-[#111111] number-only placeholder:text-white md:text-xl text-sm' placeholder='00' name="minute" id="" />
                                     </div>
                                 </div>
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Jour</p>
                                     <div className="flex mt-2 justify-between items-center w-[145px]">
-                                        <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Monday' name="" id="" />
+                                        {/* <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Monday' name="" id="" /> */}
+
+                                        <select name="jour" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
+                                            <option value="Saturday">Saturday</option>
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Mois</p>
                                     <div className="flex mt-2 justify-between items-center w-[145px]">
-                                        <input required type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='October' name="" id="" />
+                                        {/* <input required type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='October' name="" id="" /> */}
+
+                                        <select name="mois" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Time zone</p>
                                     <div className="flex mt-2 justify-between items-center w-[270px]">
-                                        <select name="" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
+                                        <select name="timezone" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
                                             <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
                                             <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
                                             <option value="-10:00">(GMT -10:00) Hawaii</option>
@@ -111,6 +158,45 @@ const CraftMail = () => {
                             <div className="p-[20px] mb-[35px] bg-[#111111]">
                                 <CKEditor
                                     editor={ClassicEditor}
+                                    // hide image upload tab
+                                    config={{
+                                        ckfinder: {
+                                            uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                                        },
+                                        toolbar: {
+                                            items: [
+                                                'heading',
+                                                '|',
+                                                'bold',
+                                                'italic',
+                                                // 'link',
+                                                // 'bulletedList',
+                                                // 'numberedList',
+                                                // 'imageUpload',
+                                                // 'blockQuote',
+                                                // 'insertTable',
+                                                // 'mediaEmbed',
+                                                // 'undo',
+                                                // 'redo'
+                                            ]
+                                        },
+                                        language: 'en',
+                                        image: {
+                                            toolbar: [
+                                                'imageTextAlternative',
+                                                'imageStyle:full',
+                                                'imageStyle:side'
+                                            ]
+                                        },
+                                        table: {
+                                            contentToolbar: [
+                                                'tableColumn',
+                                                'tableRow',
+                                                'mergeTableCells'
+                                            ]
+                                        },
+                                        licenseKey: '',
+                                    }}
                                     className="bg-black"
                                     data="<p>Hello from CKEditor 5!</p>"
                                     onReady={(editor) => {
@@ -119,6 +205,7 @@ const CraftMail = () => {
                                     onChange={(event, editor) => {
                                         const data = editor.getData();
                                         console.log({ event, editor, data });
+                                        setEmailBody(data)
                                     }}
                                 />
                             </div>
@@ -127,7 +214,7 @@ const CraftMail = () => {
                                 <div className="email lg:w-[40%] md:w-1/2 w-full">
                                     <p className="md:text-xl text-sm text-white">Mois</p>
                                     <div className="flex mt-2 justify-between items-center w-full">
-                                        <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Example@gmail.com' name="" id="" />
+                                        <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Example@gmail.com' name="email" id="" />
                                     </div>
                                 </div>
 
