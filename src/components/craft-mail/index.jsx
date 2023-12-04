@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import MailSent from '../mail-sent';
+import { DatePicker } from 'antd';
+import dayjs from 'dayjs';
 
 const CraftMail = () => {
     const [mailSent, setMailSent] = useState(false)
-    const [emailBody, setEmailBody] = useState('')  
+    const [emailBody, setEmailBody] = useState('')
+    const [jour, setJour] = useState('')
+    const [mois, setMois] = useState('')
     const handleSubmitForm = (e) => {
         e.preventDefault()
         setMailSent(true)
@@ -14,8 +18,8 @@ const CraftMail = () => {
 
         const hour = form.hour.value
         const minute = form.minute.value
-        const jour = form.jour.value
-        const mois = form.mois.value
+        // const jour = form.jour.value
+        // const mois = form.mois.value
         const timezone = form.timezone.value
         const email = form.email.value
 
@@ -48,6 +52,21 @@ const CraftMail = () => {
             })
         })
     }, [])
+
+    const onChange = (date, dateString) => {
+        console.log(date, dateString);
+        setJour(dateString)
+    };
+
+    const onChangeM = (date, dateString) => {
+        console.log(date, dateString);
+        setMois(dateString)
+    }
+
+    const disabledDate = (current) => {
+        // Can not select days before today and today
+        return current && current < dayjs().endOf('day');
+      };
     return (
         <div className='craft-mail pb-[30px]'>
             <div className="container">
@@ -71,10 +90,10 @@ const CraftMail = () => {
                                 </div>
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Jour</p>
-                                    <div className="flex mt-2 justify-between items-center w-[145px]">
+                                    <div className="flex mt-2 justify-between items-center w-[180px]">
                                         {/* <input type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='Monday' name="" id="" /> */}
 
-                                        <select name="jour" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
+                                        {/* <select name="jour" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
                                             <option value="Saturday">Saturday</option>
                                             <option value="Sunday">Sunday</option>
                                             <option value="Monday">Monday</option>
@@ -82,15 +101,17 @@ const CraftMail = () => {
                                             <option value="Wednesday">Wednesday</option>
                                             <option value="Thursday">Thursday</option>
                                             <option value="Friday">Friday</option>
-                                        </select>
+                                        </select> */}
+
+                                        <DatePicker placeholder='Select Jour' className='w-full appearance-none h-[60px] text-left px-[16px] rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm border-none text-white' onChange={onChange} />
                                     </div>
                                 </div>
                                 <div className="item">
                                     <p className="md:text-xl text-sm text-white">Mois</p>
-                                    <div className="flex mt-2 justify-between items-center w-[145px]">
+                                    <div className="flex mt-2 justify-between items-center w-[180px]">
                                         {/* <input required type="text" className='w-full h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' placeholder='October' name="" id="" /> */}
 
-                                        <select name="mois" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
+                                        {/* <select name="mois" className='w-full appearance-none h-[60px] text-left px-[16px] text-white rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm' id="">
                                             <option value="January">January</option>
                                             <option value="February">February</option>
                                             <option value="March">March</option>
@@ -103,7 +124,9 @@ const CraftMail = () => {
                                             <option value="October">October</option>
                                             <option value="November">November</option>
                                             <option value="December">December</option>
-                                        </select>
+                                        </select> */}
+
+                                        <DatePicker picker="month" disabledDate={disabledDate} placeholder='Select Mois' className='w-full appearance-none h-[60px] text-left px-[16px] rounded-[3px] bg-[#111111] placeholder:text-white md:text-xl text-sm border-none text-white' onChange={onChangeM} />
                                     </div>
                                 </div>
                                 <div className="item">

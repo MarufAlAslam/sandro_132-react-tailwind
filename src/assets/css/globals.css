@@ -23,14 +23,24 @@ h1 {
     font-weight: 500;
 }
 
-@media screen and (max-width: 992px){
+.ant-picker * {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.ant-picker input::placeholder {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+@media screen and (max-width: 992px) {
     h1 {
         line-height: 50px;
         font-weight: 500;
     }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
     h1 {
         line-height: 35px;
         font-weight: 500;
