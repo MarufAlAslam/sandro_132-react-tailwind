@@ -74,6 +74,7 @@ const CraftMail = () => {
                     <h2 className="text-[30px] medium text-white ">
                         Craft your email
                     </h2>
+                    
 
                     <div className="line bg-white h-[1px] w-full my-5"></div>
 
